@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -15,6 +17,7 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Home} />
       </Switch>
+      <ToastContainer />
     </>
   );
 };

@@ -15,9 +15,10 @@ const Login = ({ history }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    // console.table(email, password);
     try {
-      const result = auth.signInWithEmailAndPassword(email, password);
-      console.log(result);
+      const result = await auth.signInWithEmailAndPassword(email, password);
+      // console.log(result);
       const { user } = result;
       const idTokenResult = await user.getIdTokenResult();
 
@@ -28,10 +29,9 @@ const Login = ({ history }) => {
           token: idTokenResult.token,
         },
       });
-      history.pushState("/");
+      history.push("/");
     } catch (error) {
-      //
-      console.log("ERROR  ", error);
+      console.log(error);
       toast.error(error.message);
       setLoading(false);
     }

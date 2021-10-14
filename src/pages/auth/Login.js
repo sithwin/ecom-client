@@ -14,7 +14,7 @@ const Login = ({ history }) => {
   const { user } = useSelector((state) => ({ ...state }));
   useEffect(() => {
     if (user && user.token) history.push("/");
-  }, []);
+  }, [user]);
 
   let dispatch = useDispatch();
 

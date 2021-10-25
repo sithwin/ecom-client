@@ -6,18 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-const createOrUpdateUser = async (authToken) => {
-  return await axios.post(
-    `${process.env.REACT_APP_API}/create-or-update-user`,
-    {},
-    {
-      headers: {
-        authToken,
-      },
-    }
-  );
-};
+import { createOrUpdateUser } from "../../functions/auth";
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -54,7 +43,7 @@ const Login = ({ history }) => {
             },
           });
         })
-        .catch();
+        .catch((err) => console.log(err));
 
       history.push("/");
     } catch (error) {
@@ -84,7 +73,7 @@ const Login = ({ history }) => {
               },
             });
           })
-          .catch();
+          .catch((err) => console.log(err));
         history.push("/");
       })
       .catch((error) => {

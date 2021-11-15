@@ -23,7 +23,7 @@ const AdminRoute = ({ children, ...rest }) => {
   }, [user]);
 
   return ok ? (
-    <Route {...rest} render={() => children} />
+    <Route {...rest} />
   ) : (
     <h1 className="text-danger">
       <LoadingToRedirect />
